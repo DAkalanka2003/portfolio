@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+     DINUJAYA AKALANKA — PORTFOLIO (Portfolio.html)
+     =========================================================================
+     Light / white professional theme.
+        styles.css  -> all colours, layout, animation
+        script.js   -> interactivity (animated background, scroll-spy, tabs)
+        ../Images/  -> your photos live here (paths kept from your setup)
+
+     Quick edits:
+       • Text / links  -> edit inside the matching section below.
+       • Colours       -> styles.css  (:root at the top)
+       • Portfolio pic  -> change the <img class="port-photo" src="..."> path.
+       • Profile pic    -> HERO section, ../Images/profile.jpeg
+
+     Skill + social icons are real brand logos (inline SVG) in brand colours.
+     ========================================================================= -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Dinujaya Akalanka — Physical Science undergraduate, photographer, graphic designer and video editor. Portfolio 2026." />
+  <title>Dinujaya Akalanka — Portfolio</title>
+
+  <!-- Fonts: Fraunces (elegant display serif) + Inter (clean UI/body sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Animated background: canvas particle network + soft drifting blobs -->
+  <div class="bg-blobs"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Custom cursor (desktop only) -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+
+  <!-- =====================================================================
+       NAVIGATION  (scroll-spy highlights the current section's link)
+       ===================================================================== -->
+  <nav>
+    <div class="nav-logo">Dinujaya <span>Akalanka</span></div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active"><b>Home</b></a></li>
+      <li><a href="#about-section"><b>About</b></a></li>
+      <li><a href="#skills-section"><b>Skills</b></a></li>
+      <li><a href="#portfolio-section"><b>Work</b></a></li>
+      <li><a href="#experience"><b>Experience</b></a></li>
+      <li><a href="#contact"><b>Contact</b></a></li>
+    </ul>
+  </nav>
+
+
+  <!-- =====================================================================
+       HERO
+       ===================================================================== -->
+  <div id="hero">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">Portfolio 2026</div>
+      <h1 class="hero-name">Dinujaya<span>Akalanka</span></h1>
+      <p class="hero-subtitle">· Undergraduate <br></p>
+      <p class="hero-subtitle">· Photographer     · Graphic Designer      · Video Editor · Web Designer </pp>
+      <p class="hero-desc">
+        A highly motivated Physical Science undergraduate at the University of Kelaniya, combining a strong
+        foundation in Computer Science and Mathematics with hands-on expertise in photography, graphic design
+        and video editing.
+      </p>
+
+      <!-- Coloured brand icons -->
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/dinujaya-akalanka-574a46357" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#0A66C2" />
+            <path fill="#fff"
+              d="M4.6 9.5h2.9V19H4.6zM6.05 4.6a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM9.4 9.5h2.78v1.3h.04c.39-.73 1.34-1.5 2.76-1.5 2.95 0 3.5 1.94 3.5 4.47V19h-2.9v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.38V19H9.4z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/its_me_dinujaya?igsh=M2J5MHdxYWk3M254" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ig-hero" cx="30%" cy="107%" r="140%">
+                <stop offset="0%" stop-color="#fdf497" />
+                <stop offset="8%" stop-color="#fdf497" />
+                <stop offset="45%" stop-color="#fd5949" />
+                <stop offset="60%" stop-color="#d6249f" />
+                <stop offset="90%" stop-color="#285AEB" />
+              </radialGradient>
+            </defs>
+            <rect width="24" height="24" rx="6" fill="url(#ig-hero)" />
+            <rect x="5" y="5" width="14" height="14" rx="4.5" fill="none" stroke="#fff" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="3.4" fill="none" stroke="#fff" stroke-width="1.8" />
+            <circle cx="16.5" cy="7.5" r="1.05" fill="#fff" />
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/share/18jDVeC7r9/" target="_blank" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#1877F2" />
+            <path fill="#fff"
+              d="M15.4 12.6l.5-3.1h-3V7.5c0-.85.42-1.66 1.75-1.66h1.38V3.2s-1.25-.21-2.45-.21c-2.5 0-4.13 1.51-4.13 4.25V9.5H6.7v3.1h2.75V20h3.4v-7.4z" />
+          </svg>
+        </a>
+        <a href="mailto:ddinujayaakalanka03@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7a3 3 0 0 0 3-3V16.2z" />
+            <path fill="#1e88e5" d="M3 16.2l3.61 1.71L13 23.7V40H6a3 3 0 0 1-3-3V16.2z" />
+            <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17" />
+            <path fill="#c62828"
+              d="M3 12.3v3.9l10 7.5V11.2L9.88 8.86A3.68 3.68 0 0 0 7.3 8 4.3 4.3 0 0 0 3 12.3z" />
+            <path fill="#fbc02d"
+              d="M45 12.3v3.9l-10 7.5V11.2l3.12-2.34A3.68 3.68 0 0 1 40.7 8 4.3 4.3 0 0 1 45 12.3z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#portfolio-section" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          View My Work
+        </a>
+        <a href="mailto:ddinujayaakalanka03@gmail.com" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-10 7L2 7" />
+          </svg>
+          Get In Touch
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="profile-3d-wrap">
+        <div class="profile-3d" id="profileCard">
+          <!-- PROFILE PHOTO: keep your file at ../Images/profile.jpeg (or change path).
+               If it fails to load, the silhouette icon shows automatically. -->
+          <img class="profile-photo" src="Images/profile.jpeg" alt="Dinujaya Akalanka" />
+          <svg class="profile-fallback-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor"
+            stroke-width="4" stroke-linecap="round">
+            <circle cx="50" cy="36" r="18" />
+            <path d="M18 88c0-20 14-34 32-34s32 14 32 34" />
+          </svg>
+        </div>
+        <div class="float-badge">LK · DA</div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="line"></div>
+      SCROLL
+    </div>
+  </div>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       ABOUT
+       ===================================================================== -->
+  <section id="about-section">
+    <div id="about">
+      <div class="about-left reveal">
+        <div class="section-tag">Who I Am</div>
+        <h2 class="section-title">Creative &amp; <span>Technical</span></h2>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">9+</div>
+            <div class="stat-label">Leadership Roles</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Creativity</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <div class="section-tag">Profile</div>
+        <p>I'm a <span>Physical Science undergraduate</span> at the University of Kelaniya with a strong foundation in
+          Computer Science, Mathematics, and ICT.</p>
+        <p>Blending technical precision with creative vision, I work as a <span>photographer, graphic designer, video
+            editor,</span> and UI/UX designer — delivering polished results for clients and university organisations.
+        </p>
+        <p>I'm seeking an <span>IT / Technical Internship</span> where I can channel my problem-solving skills and
+          design sensibility into professional impact.</p>
+        <br />
+        <a href="mailto:ddinujayaakalanka03@gmail.com" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-10 7L2 7" />
+          </svg>
+          ddinujayaakalanka03@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       SKILLS  (brand logos in brand colours; data-pct fills the bar)
+       ===================================================================== -->
+  <section id="skills-section">
+    <div class="reveal">
+      <div class="section-tag">Capabilities</div>
+      <h2 class="section-title">My <span>Toolkit</span></h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+
+      <!-- Adobe Photoshop -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4.5" fill="#001E36" />
+            <text x="12" y="16.5" font-family="'Trebuchet MS',Arial,sans-serif" font-size="10" font-weight="700"
+              fill="#31A8FF" text-anchor="middle">Ps</text>
+          </svg>
+        </div>
+        <div class="skill-name">Adobe Photoshop</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="90"></div>
+        </div>
+        <div class="skill-pct"><span>Retouching · Compositing</span><span>90%</span></div>
+      </div>
+
+      <!-- Adobe Lightroom -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4.5" fill="#001E36" />
+            <text x="12" y="16.5" font-family="'Trebuchet MS',Arial,sans-serif" font-size="10" font-weight="700"
+              fill="#31A8FF" text-anchor="middle">Lr</text>
+          </svg>
+        </div>
+        <div class="skill-name">Adobe Lightroom</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="92"></div>
+        </div>
+        <div class="skill-pct"><span>Colour · Editing</span><span>92%</span></div>
+      </div>
+
+      <!-- DaVinci Resolve -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4.5" fill="#1b1b1f" />
+            <circle cx="10" cy="12" r="4.4" fill="none" stroke="#12A5E0" stroke-width="2.2" />
+            <circle cx="14" cy="12" r="4.4" fill="none" stroke="#F0492E" stroke-width="2.2" opacity=".92" />
+          </svg>
+        </div>
+        <div class="skill-name">DaVinci Resolve</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="60"></div>
+        </div>
+        <div class="skill-pct"><span>Colour Grading · Edit</span><span>80%</span></div>
+      </div>
+
+      <!-- CapCut -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4.5" fill="#000000" />
+            <path d="M10 8.4 16.2 12 10 15.6z" fill="#fff" />
+            <circle cx="8.5" cy="12" r="1.7" fill="#25F4EE" />
+          </svg>
+        </div>
+        <div class="skill-name">CapCut</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="88"></div>
+        </div>
+        <div class="skill-pct"><span>Video · Reels</span><span>88%</span></div>
+      </div>
+
+      <!-- Canva -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cv" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#00C4CC" />
+                <stop offset="1" stop-color="#6420FF" />
+              </linearGradient>
+            </defs>
+            <circle cx="12" cy="12" r="12" fill="url(#cv)" />
+            <text x="12" y="16.5" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#fff"
+              text-anchor="middle">C</text>
+          </svg>
+        </div>
+        <div class="skill-name">Canva</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="75"></div>
+        </div>
+        <div class="skill-pct"><span>Social · Print Design</span><span>95%</span></div>
+      </div>
+
+      <!-- Figma -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+            <path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+            <path fill="#ff7262" d="M19 0h9.5a9.5 9.5 0 1 1 0 19H19V0z" />
+            <path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+            <path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+          </svg>
+        </div>
+        <div class="skill-name">Figma</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="78"></div>
+        </div>
+        <div class="skill-pct"><span>UI/UX · Prototyping</span><span>75%</span></div>
+      </div>
+
+      <!-- HTML / CSS -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#E44D26" d="M4 2l1.6 18L12 22l6.4-2L20 2z" />
+            <path fill="#F16529" d="M12 3.5v17l5.2-1.6L18.6 3.5z" />
+            <path fill="#EBEBEB" d="M12 8.1H7.75l.14 1.65H12V8.1zm0 4.15H8l.44 5 3.56.98v-1.72l-1.97-.53-.13-1.4H12z" />
+            <path fill="#fff"
+              d="M12 8.1v1.65h4.1l-.14 1.55H12v1.65h3.82l-.34 3.7-3.48.95v1.72l3.55-.98.66-7.4.07-.85.13-1.99z" />
+          </svg>
+        </div>
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="72"></div>
+        </div>
+        <div class="skill-pct"><span>Front-End Dev</span><span>80%</span></div>
+      </div>
+
+      <!-- AI Tools -->
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4.5" fill="#0f172a" />
+            <defs>
+              <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8B5CF6" />
+                <stop offset=".5" stop-color="#EC4899" />
+                <stop offset="1" stop-color="#38BDF8" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#ai)" d="M12 4.5c.35 3.1 2.05 4.8 5.15 5.15-3.1.35-4.8 2.05-5.15 5.15-.35-3.1-2.05-4.8-5.15-5.15C9.95 9.3 11.65 7.6 12 4.5z" />
+            <path fill="url(#ai)" d="M17.6 14.4c.15 1.35.9 2.1 2.25 2.25-1.35.15-2.1.9-2.25 2.25-.15-1.35-.9-2.1-2.25-2.25 1.35-.15 2.1-.9 2.25-2.25z" />
+          </svg>
+        </div>
+        <div class="skill-name">AI Tools</div>
+        <div class="skill-bar-bg">
+          <div class="skill-bar" data-pct="82"></div>
+        </div>
+        <div class="skill-pct"><span>Generative · Workflow</span><span>70%</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       PORTFOLIO
+       =====================================================================
+       Each card = one project. To swap a photo, change the
+       <img class="port-photo" src="../Images/FILE.jpg"> path. Missing photos
+       fall back to the camera placeholder automatically. data-cat controls
+       which filter tab a card belongs to.
+       ===================================================================== -->
+  <section id="portfolio-section">
+    <div class="reveal">
+      <div class="section-tag">Creative Work</div>
+      <h2 class="section-title">Selected <span>Portfolio</span></h2>
+    </div>
+
+    <div class="portfolio-tabs reveal">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="dak_photo">DAK Photography</button>
+      <button class="tab-btn" data-filter="uni_photo">University Photography</button>
+      <button class="tab-btn" data-filter="design">Design</button>
+      <button class="tab-btn" data-filter="uiux">UI / UX</button>
+      <button class="tab-btn" data-filter="video">Video Editing</button>
+    </div>
+
+    <div class="portfolio-grid reveal" id="portGrid">
+
+      <!-- ===== DAK PHOTOGRAPHY ===== -->
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/PreShoot.JPG" alt="Iruni & Mayura pre-shoot" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">Iruni &amp; Mayura's pre-shoot</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/18hkZT5eST/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Certificate.jpg" alt="AI Physical Course awards ceremony" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">Completion Certificate &amp; Awards Ceremony of Sri Lanka's Biggest AI Physical Course.</div>
+                    <a class="port-link" href="https://web.facebook.com/permalink.php?story_fbid=pfbid02oZLK8zjT6U2LqXde6Y6RDntGNZGiHsBtG68veV8o8CmZzg4YDnvuf1CeMTSm4dvKl&id=61569035450454" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Padura.jpg" alt="Padura 2025 cover" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">පැදුර 2025 | Official cover of UoK Faculty of Science's biggest annual event.</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/18d5hsAHdS/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Graduation.jpg" alt="Graduation photography" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">Graduation photography.</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/1BBQ8wfXVM/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Madurayamaya.jpg" alt="Kelani Kande evening shoot" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">කැලණි කන්දේ සොදුරු යාමය - මධුර යාමය | දෙවන අදියර</div>
+                  <a class="port-link" href="https://web.facebook.com/permalink.php?story_fbid=pfbid0FYSEDVWjJFATYYTjW2t1AzERapm17hggEWjLZDvkCxGTddpTeBo71t7CzUAu4G5gl&id=61569035450454" target="_blank">View on Facebook →</a>
+
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="dak_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/AC.jpg" alt="Transcendencia'25 Chemistry Competition" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">DAK Photography</div>
+          <div class="port-title">DAK Studio</div>
+          <div class="port-desc">Transcendencia'25 Chemistry Competition</div>
+                  <a class="port-link" href="https://web.facebook.com/share/p/1Fms1vafB2/" target="_blank">Album 01 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/18ijJrJZrx/" target="_blank">Album 02 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/1LJXnuQGN7/" target="_blank">Album 03 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/1BBDEcGRpP/" target="_blank">Album 04 →</a>
+        
+        </div>
+      </div>
+
+
+      <!-- ===== UNIVERSITY PHOTOGRAPHY ===== -->
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Mehewara.jpg" alt="Mehewara 3.0 - VidE Club" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">Mehewara 3.0 - VidE Club</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/1DCa7mpQZz/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Prayama.jpg" alt="Prayama - Step 05" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">Science Students' Union - UoK</div>
+          <div class="port-desc">Prayama - Step 05</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/1HFKbd12LY/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/F_W.jpg" alt="Freshers' Welcome - FoS, UoK" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">Science Students' Union - UoK</div>
+          <div class="port-desc">Freshers' Welcome - FoS, UoK</div>
+          <a class="port-link"
+            href="https://web.facebook.com/foskln/posts/pfbid02kiZTiowNsz5qWVbuAvD1sBA2xveZGv9YSAqTsft1G2vowrG2uYGryE9ZCSS3gH8Ul"
+            target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Ex.jpg" alt="Excellora 2026 - LED KLN" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">"Excellora 2026" | The Annual Award Ceremony, LED KLN</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/1JNwvZGiRq/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/MOU.jpg" alt="MoU Signing Ceremony" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">Memorandum of Understanding (MoU) Signing Ceremony</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/19D73JGLL7/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Padura2.jpg" alt="Padura 2025 - Faculty of Science, UoK" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">පැදුර 2025 - Faculty of Science, UoK</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/18yELGiVz4/" target="_blank">Album 01 | Part 01 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/1E2y4FcVXF/" target="_blank">Album 01 | Part 02 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/1HRQZiWdQu/" target="_blank">Album 03 | Part 02 →</a>
+          <a class="port-link" href="https://web.facebook.com/share/p/1Ef3uWrX2f/" target="_blank">Album 04 →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Leadership.jpg" alt="Leadership Conference 2025 - LED KLN" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">LEADERSHIP CONFERENCE 2025 - LED KLN</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/18kj9NBfSo/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="uni_photo">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Annual Trip.jpg" alt="VidE Club Annual Trip 2025" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Dinujaya Akalanka Photography</div>
+          <div class="port-title">කැලණිSteam - VidE Club</div>
+          <div class="port-desc">VidE Club Annual Trip 2025</div>
+          <a class="port-link" href="https://web.facebook.com/share/p/1CzECvoxnX/" target="_blank">View on Facebook →</a>
+        </div>
+      </div>
+
+
+      <!-- ===== DESIGN ===== -->
+
+      <div class="port-card" data-cat="design">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Design.jpg" alt="Client brand designs" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Design · Client Work</div>
+          <div class="port-title">Client Brand Designs</div>
+          <div class="port-desc">Logos, social media graphics, and marketing material for clients.</div>
+          <a class="port-link" href="https://www.facebook.com/share/1Cx6QHZSmv/" target="_blank">View DAK Studio →</a>
+        </div>
+      </div>
+
+
+      <!-- ===== UI / UX ===== -->
+
+      <div class="port-card" data-cat="uiux">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <!-- No image yet — placeholder icon shows. Add ../Images/UIUX.jpg and an <img> to display one. -->
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <line x1="9" y1="21" x2="9" y2="9" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">UI/UX · Figma</div>
+          <div class="port-title">DAK Studio Website Design</div>
+          <div class="port-desc">Full UI/UX design system for DAK Studio — clean, modern, brand-aligned.</div>
+        </div>
+      </div>
+
+
+      <!-- ===== VIDEO EDITING ===== -->
+
+      <div class="port-card" data-cat="video">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Sipyathra2.jpg" alt="Sipyathra Project documentary" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="6 4 20 12 6 20 6 4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Video Editing</div>
+          <div class="port-title">MSS - UoK</div>
+          <div class="port-desc">Sipyathra Project documentary</div>
+          <a class="port-link" href="https://web.facebook.com/share/v/195sKAxhvK/" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="video">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Sipyathra.jpg" alt="Sipyathra Project donation video" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="6 4 20 12 6 20 6 4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Video Editing</div>
+          <div class="port-title">MSS - UoK</div>
+          <div class="port-desc">Sipyathra Project - For Collecting the Donation</div>
+          <a class="port-link" href="https://web.facebook.com/share/v/18nppioT8B/" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <div class="port-card" data-cat="video">
+        <div class="port-card-visual">
+          <div class="port-scene">
+            <img class="port-photo" src="Images/Padura3.jpg" alt="Padura Official Week video" loading="lazy" />
+            <svg class="port-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="6 4 20 12 6 20 6 4" />
+            </svg>
+          </div>
+        </div>
+        <div class="port-overlay">
+          <div class="port-tag">Video Editing</div>
+          <div class="port-title">Science Students' Union - UoK</div>
+          <div class="port-desc">Padura Official Week Video</div>
+          <a class="port-link" href="https://web.facebook.com/share/v/14icv3TnMX1/" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       EXPERIENCE
+       ===================================================================== -->
+  <section id="experience">
+    <div class="reveal">
+      <div class="section-tag">Career</div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <span class="exp-period">April 2026 – Present</span>
+        <div class="exp-role">Intern - Editor</div>
+        <div class="exp-company">100 International AI (Pvt) Ltd | Hybrid</div>
+        <ul class="exp-points">
+          <li>Contributing to the creative team by handling multimedia editing and visual content creation.</li>
+          <li>Utilizing advanced graphic design tools to develop engaging digital assets and promotional materials.</li>
+          <li>Collaborating in a hybrid workflow to deliver high-quality design and editing projects aligned with the company's AI-driven initiatives.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <span class="exp-period">Jan 2026 – Mar 2026</span>
+        <div class="exp-role">Internship / Full-time - Graphic Designer</div>
+        <div class="exp-company">Center for Sustainability Solutions, University of Kelaniya</div>
+        <ul class="exp-points">
+          <li>Headed the creative design process for the university's official annual sustainability documentation.</li>
+          <li>Designed and produced 19 environmental awareness and biodiversity information boards for on-campus installations.</li>
+          <li>Leveraged computer graphics design principles to deliver engaging media and visual communication assets.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <span class="exp-period">2022 – Present · 3+ Years</span>
+        <div class="exp-role">Client Coordinator &amp; Digital Marketing Assistant</div>
+        <div class="exp-company">Unposed Moments (Pvt) Ltd</div>
+        <ul class="exp-points">
+          <li>Coordinate client communication and support digital marketing campaigns.</li>
+          <li>Assist in content planning, campaign execution, and performance tracking.</li>
+          <li>Bridge client expectations with creative teams for on-brand delivery.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <span class="exp-period">Ongoing · Self-Employed</span>
+        <div class="exp-role">Photographer &amp; Graphic Designer</div>
+        <div class="exp-company">DAK Studio – Independent Creative Practice</div>
+        <ul class="exp-points">
+          <li>Managed digital content, design work, and social media pages.</li>
+          <li>Handled Facebook Page strategy, content creation, and community engagement.</li>
+          <li>Delivered photography and design services to individual and corporate clients.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       EDUCATION & CERTIFICATIONS
+       ===================================================================== -->
+  <section id="edu-cert">
+    <div class="reveal">
+      <div class="section-tag">Credentials</div>
+      <h2 class="section-title">Education &amp; <span>Certifications</span></h2>
+    </div>
+    <div class="edu-cert-grid">
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M22 10 12 5 2 10l10 5 10-5z" />
+            <path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">BSc in Physical Science (Undergraduate)</div>
+          <div class="cert-from">University of Kelaniya · Computer Sci · Pure &amp; Applied Mathematics</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">G.C.E. Advanced Level – Combined Maths A, Chemistry C, Physics C</div>
+          <div class="cert-from">Saint Aloysius' College, Galle · 2022</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="8" r="7" />
+            <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">G.C.E. Ordinary Level – 7A 1B 1C · ICT – A, Tamil – A</div>
+          <div class="cert-from">Ihalagoda Sumangala Model School, Galle · 2019</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">AI Fundamentals Course</div>
+          <div class="cert-from">UniAthena, certified by Cambridge International Qualifications, UK.</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">Basics of Digital Marketing</div>
+          <div class="cert-from">Lanka Education And Research Network (LEARN)</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">Front-End Web Development</div>
+          <div class="cert-from">University of Moratuwa</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">Introduction to Software Quality Assurance</div>
+          <div class="cert-from">University of Moratuwa</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">PYQUEST 24 – Python Workshop</div>
+          <div class="cert-from">University of Kelaniya · 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r=".9" fill="currentColor" stroke="none" />
+            <circle cx="17.5" cy="10.5" r=".9" fill="currentColor" stroke="none" />
+            <circle cx="8.5" cy="7.5" r=".9" fill="currentColor" stroke="none" />
+            <circle cx="6.5" cy="12.5" r=".9" fill="currentColor" stroke="none" />
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.83-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">Web Design</div>
+          <div class="cert-from">University of Moratuwa &amp; University of Kelaniya · 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" />
+            <line x1="7" y1="2" x2="7" y2="22" />
+            <line x1="17" y1="2" x2="17" y2="22" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <line x1="2" y1="7" x2="7" y2="7" />
+            <line x1="2" y1="17" x2="7" y2="17" />
+            <line x1="17" y1="17" x2="22" y2="17" />
+            <line x1="17" y1="7" x2="22" y2="7" />
+          </svg>
+        </div>
+        <div>
+          <div class="cert-name">DaVinci Resolve Masterclass (Color Grading)</div>
+          <div class="cert-from">100 International · 2024</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       LEADERSHIP & ACTIVITIES
+       ===================================================================== -->
+  <section id="leadership">
+    <div class="reveal">
+      <div class="section-tag">Community</div>
+      <h2 class="section-title">Leadership &amp; <span>Activities</span></h2>
+    </div>
+    <div class="lead-grid">
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">President</div>
+          <div class="lead-org">VidE Club, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">President</div>
+          <div class="lead-org">Astronomy and Space Science Association, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Editor</div>
+          <div class="lead-org">Mathematics Students' Society, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Junior Editor</div>
+          <div class="lead-org">Humanities Society, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Designer</div>
+          <div class="lead-org">AWS Cloud Club, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Digital Media Coordinator</div>
+          <div class="lead-org">LED KLN</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">PR Coordinator</div>
+          <div class="lead-org">R &amp; C Avenue, Leo Club, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Head of Photography</div>
+          <div class="lead-org">VidE Club – Faculty Media Unit, UoK</div>
+        </div>
+      </div>
+
+      <div class="lead-card reveal">
+        <div class="lead-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        </div>
+        <div>
+          <div class="lead-role">Co-Chair</div>
+          <div class="lead-org">Project Vesper 25 – Astronomy &amp; Space Science Assoc.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+
+  <!-- =====================================================================
+       CONTACT
+       ===================================================================== -->
+  <section id="contact">
+    <div class="reveal">
+      <div class="section-tag" style="justify-content:center;">Let's Connect</div>
+      <div class="contact-glow">Let's Work <span>Together</span></div>
+      <p class="contact-sub">Whether it's a design project, photography gig, or internship opportunity — I'm open and
+        ready. Reach out through any channel below.</p>
+
+      <div class="contact-links">
+
+        <!-- Email (Gmail) -->
+        <a class="contact-link" href="mailto:ddinujayaakalanka03@gmail.com">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7a3 3 0 0 0 3-3V16.2z" />
+            <path fill="#1e88e5" d="M3 16.2l3.61 1.71L13 23.7V40H6a3 3 0 0 1-3-3V16.2z" />
+            <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17" />
+            <path fill="#c62828" d="M3 12.3v3.9l10 7.5V11.2L9.88 8.86A3.68 3.68 0 0 0 7.3 8 4.3 4.3 0 0 0 3 12.3z" />
+            <path fill="#fbc02d" d="M45 12.3v3.9l-10 7.5V11.2l3.12-2.34A3.68 3.68 0 0 1 40.7 8 4.3 4.3 0 0 1 45 12.3z" />
+          </svg>
+          ddinujayaakalanka03@gmail.com
+        </a>
+
+        <!-- Phone -->
+        <a class="contact-link" href="tel:+94723302270">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0e9d63" stroke-width="1.9" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 13 19.79 19.79 0 0 1 1 4.36 2 2 0 0 1 2.96 2h3a2 2 0 0 1 2 1.72c.13 1 .39 1.98.76 2.92a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.9 5.9l1.27-1.27a2 2 0 0 1 2.11-.45c.94.37 1.92.62 2.92.76A2 2 0 0 1 22 16.92z" />
+          </svg>
+          +94 72 330 2270
+        </a>
+
+        <!-- LinkedIn -->
+        <a class="contact-link" href="https://www.linkedin.com/in/dinujaya-akalanka-574a46357" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#0A66C2" />
+            <path fill="#fff"
+              d="M4.6 9.5h2.9V19H4.6zM6.05 4.6a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4zM9.4 9.5h2.78v1.3h.04c.39-.73 1.34-1.5 2.76-1.5 2.95 0 3.5 1.94 3.5 4.47V19h-2.9v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.38V19H9.4z" />
+          </svg>
+          LinkedIn Profile
+        </a>
+
+        <!-- Facebook (DAK Studio) -->
+        <a class="contact-link" href="https://www.facebook.com/share/1Cx6QHZSmv/" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#1877F2" />
+            <path fill="#fff"
+              d="M15.4 12.6l.5-3.1h-3V7.5c0-.85.42-1.66 1.75-1.66h1.38V3.2s-1.25-.21-2.45-.21c-2.5 0-4.13 1.51-4.13 4.25V9.5H6.7v3.1h2.75V20h3.4v-7.4z" />
+          </svg>
+          DAK Studio – Facebook
+        </a>
+
+        <!-- Facebook (personal) -->
+        <a class="contact-link" href="https://www.facebook.com/share/18jDVeC7r9/" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#1877F2" />
+            <path fill="#fff"
+              d="M15.4 12.6l.5-3.1h-3V7.5c0-.85.42-1.66 1.75-1.66h1.38V3.2s-1.25-.21-2.45-.21c-2.5 0-4.13 1.51-4.13 4.25V9.5H6.7v3.1h2.75V20h3.4v-7.4z" />
+          </svg>
+          Personal Facebook
+        </a>
+
+        <!-- Instagram -->
+        <a class="contact-link" href="https://www.instagram.com/its_me_dinujaya?igsh=M2J5MHdxYWk3M254" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ig-contact" cx="30%" cy="107%" r="140%">
+                <stop offset="0%" stop-color="#fdf497" />
+                <stop offset="8%" stop-color="#fdf497" />
+                <stop offset="45%" stop-color="#fd5949" />
+                <stop offset="60%" stop-color="#d6249f" />
+                <stop offset="90%" stop-color="#285AEB" />
+              </radialGradient>
+            </defs>
+            <rect width="24" height="24" rx="6" fill="url(#ig-contact)" />
+            <rect x="5" y="5" width="14" height="14" rx="4.5" fill="none" stroke="#fff" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="3.4" fill="none" stroke="#fff" stroke-width="1.8" />
+            <circle cx="16.5" cy="7.5" r="1.05" fill="#fff" />
+          </svg>
+          Personal Instagram
+        </a>
+
+      </div>
+
+      <div class="contact-referee">
+        Referee: Dr. (Mrs.) L.P.N.D. Premarathna · Dept. of Mathematics, UoK · lpnadeeka@kln.ac.lk
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer>
+    <div>© 2025 <span>Dinujaya Akalanka</span> · All Rights Reserved</div>
+    <div>Designed &amp; Built by <span>DAK Studio</span></div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
