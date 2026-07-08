@@ -205,11 +205,22 @@
        real video once it's ready. Two easy options: -->
 
   <h2 class="section-title reveal" style="text-align:center;">Intro <span>Video</span></h2>
-  <video class="intro-video" autoplay muted loop playsinline disablePictureInPicture
-    controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;" poster="Images/profile.PNG">
-    <source src="Images/Video.mp4" type="video/mp4">
-  </video>
 
+  <center>
+    <div class="video-container">
+      <video class="intro-video" autoplay muted loop playsinline disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;"
+        poster="Images/profile.PNG">
+        <source src="Images/Video.mp4" type="video/mp4">
+      </video>
+
+      <!-- Sound Toggle Button -->
+      <button id="soundToggle" class="sound-btn">
+        <span id="soundIcon">🔇 Sound Off</span>
+      </button>
+    </div>
+
+  </center>
 
   <!-- =====================================================================
        ABOUT
