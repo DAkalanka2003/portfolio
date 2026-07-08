@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(14, 157, 99, 0.2)';
+        ctx.fillStyle = 'rgba(34, 197, 94, 0.55)';
         ctx.fill();
 
         // Link to nearby particles
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(20, 21, 26, ${0.02 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(74, 222, 128, ${0.10 * (1 - dist / 120)})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(14, 157, 99, ${0.12 * (1 - dm / 160)})`;
+          ctx.strokeStyle = `rgba(34, 197, 94, ${0.35 * (1 - dm / 160)})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -128,12 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseenter', () => {
           cursor.style.width = '14px'; cursor.style.height = '14px';
           ring.style.width = '52px'; ring.style.height = '52px';
-          ring.style.borderColor = 'rgba(14,157,99,0.8)';
+          ring.style.borderColor = 'rgba(34,197,94,0.9)';
         });
         el.addEventListener('mouseleave', () => {
           cursor.style.width = '8px'; cursor.style.height = '8px';
           ring.style.width = '34px'; ring.style.height = '34px';
-          ring.style.borderColor = 'rgba(14,157,99,0.5)';
+          ring.style.borderColor = 'rgba(34,197,94,0.6)';
         });
       });
   }
@@ -227,6 +227,44 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll('a').forEach((a) =>
       a.addEventListener('click', () => navLinks.classList.remove('open')));
   }
+
+
+  /* -----------------------------------------------------------------------
+     8b. NAV "WORK" CATEGORY SUBMENU
+     Caret button opens/closes the dropdown (desktop hover also works via
+     CSS). Clicking a category jumps to the portfolio section AND applies
+     that category's filter by reusing the existing tab-filter logic above.
+     ----------------------------------------------------------------------- */
+  document.querySelectorAll('.nav-has-sub').forEach((item) => {
+    const toggle = item.querySelector('.nav-sub-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = item.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    item.querySelectorAll('.nav-submenu a[data-filter]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const filter = link.dataset.filter;
+        const matchingTab = document.querySelector(`.tab-btn[data-filter="${filter}"]`);
+        if (matchingTab) matchingTab.click();
+        item.classList.remove('open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+
+  // Close the submenu if you click/tap anywhere else
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav-has-sub.open').forEach((item) => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        item.querySelector('.nav-sub-toggle')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
 
 
   /* -----------------------------------------------------------------------
