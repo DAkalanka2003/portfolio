@@ -327,4 +327,22 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach((s) => spy.observe(s.el));
   }
 
+
+  // Video
+
+  const video = document.querySelector('.intro-video');
+  const soundToggle = document.getElementById('soundToggle');
+  const soundIcon = document.getElementById('soundIcon');
+
+  soundToggle.addEventListener('click', function () {
+    if (video.muted) {
+      video.muted = false;
+      soundIcon.textContent = '🔊 Sound On';
+    } else {
+      video.muted = true;
+      soundIcon.textContent = '🔇 Sound Off';
+    }
+  });
+
+
 });
