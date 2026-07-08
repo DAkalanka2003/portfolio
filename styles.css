@@ -17,16 +17,26 @@
    1. THEME TOKENS
    ------------------------------------------------------------------------- */
 :root {
-  --bg: #0a0f0d;                 /* main background — near-black, green-tinted */
-  --bg-soft: #101613;            /* alternating section tint               */
-  --bg-card: #141b18;            /* card surface                           */
-  --ink: #eef6f1;               /* headings / strong text — off-white     */
-  --body: #a9b6af;              /* paragraph text                         */
-  --muted: #6e7d75;             /* captions / labels                      */
-  --line: #222e28;              /* hairline borders                       */
-  --line-soft: #1a241f;         /* softer borders                         */
-  --accent: #22c55e;            /* brand accent (bright green)            */
-  --accent-deep: #4ade80;       /* lighter accent (text on soft chips)    */
+  --bg: #0a0f0d;
+  /* main background — near-black, green-tinted */
+  --bg-soft: #101613;
+  /* alternating section tint               */
+  --bg-card: #141b18;
+  /* card surface                           */
+  --ink: #eef6f1;
+  /* headings / strong text — off-white     */
+  --body: #a9b6af;
+  /* paragraph text                         */
+  --muted: #6e7d75;
+  /* captions / labels                      */
+  --line: #222e28;
+  /* hairline borders                       */
+  --line-soft: #1a241f;
+  /* softer borders                         */
+  --accent: #22c55e;
+  /* brand accent (bright green)            */
+  --accent-deep: #4ade80;
+  /* lighter accent (text on soft chips)    */
   --accent-soft: rgba(34, 197, 94, 0.14);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.45);
@@ -51,7 +61,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;   /* so anchored sections aren't hidden by nav */
+  scroll-padding-top: 90px;
+  /* so anchored sections aren't hidden by nav */
 }
 
 body {
@@ -81,6 +92,7 @@ a {
 
 /* Users who prefer reduced motion get a calmer, near-static site */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -165,23 +177,49 @@ a {
 }
 
 @keyframes gridDrift {
-  0%   { background-position: 0 0, 0 0; }
-  100% { background-position: 46px 46px, 46px 46px; }
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 46px 46px, 46px 46px;
+  }
 }
 
 @keyframes drift1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(80px, 60px) scale(1.15); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(80px, 60px) scale(1.15);
+  }
 }
 
 @keyframes drift2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(-70px, -50px) scale(1.1); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-70px, -50px) scale(1.1);
+  }
 }
 
 @keyframes drift3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(-60px, 70px) scale(1.2); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-60px, 70px) scale(1.2);
+  }
 }
 
 
@@ -214,12 +252,22 @@ a {
 }
 
 @media (pointer: fine) {
-  body { cursor: none; }
-  a, button { cursor: none; }
+  body {
+    cursor: none;
+  }
+
+  a,
+  button {
+    cursor: none;
+  }
 }
 
 @media (pointer: coarse) {
-  #cursor, #cursor-ring { display: none; }
+
+  #cursor,
+  #cursor-ring {
+    display: none;
+  }
 }
 
 
@@ -254,8 +302,10 @@ nav.scrolled {
 .nav-logo {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.3rem, 2vw, 1.8rem); /* Scaled up to align with Bebas Neue's compact style */
-  letter-spacing: 3px; /* Matched from code 2 */
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  /* Scaled up to align with Bebas Neue's compact style */
+  letter-spacing: 3px;
+  /* Matched from code 2 */
   color: var(--ink);
   white-space: nowrap;
   flex-shrink: 0;
@@ -279,10 +329,12 @@ nav.scrolled {
 
 .nav-links a {
   position: relative;
-  font-family: var(--font-mono); /* Swapped to Space Mono */
+  font-family: var(--font-mono);
+  /* Swapped to Space Mono */
   font-size: clamp(.68rem, 1vw, .82rem);
   font-weight: 500;
-  letter-spacing: clamp(.5px, .15vw, 2px); /* Matched from code 2 */
+  letter-spacing: clamp(.5px, .15vw, 2px);
+  /* Matched from code 2 */
   text-transform: uppercase;
   color: var(--body);
   padding: .5rem clamp(.5rem, 1.2vw, .9rem);
@@ -324,7 +376,7 @@ nav.scrolled {
   white-space: nowrap;
 }
 
-.nav-has-sub > a {
+.nav-has-sub>a {
   flex: 1;
   white-space: nowrap;
 }
@@ -414,7 +466,8 @@ section {
   display: inline-flex;
   align-items: center;
   gap: .6rem;
-  font-family: var(--font-mono); /* Set tech labels to Space Mono */
+  font-family: var(--font-mono);
+  /* Set tech labels to Space Mono */
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .16em;
@@ -434,7 +487,8 @@ section {
 .section-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.4rem, 5vw, 3.8rem); /* Slightly tuned for Bebas Neue typography */
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  /* Slightly tuned for Bebas Neue typography */
   line-height: 1.08;
   letter-spacing: 1px;
   color: var(--ink);
@@ -443,7 +497,8 @@ section {
 
 .section-title span {
   color: var(--accent);
-  font-style: normal; /* Removed italic style for display text compatibility */
+  font-style: normal;
+  /* Removed italic style for display text compatibility */
 }
 
 .full-divider {
@@ -470,7 +525,8 @@ section {
 }
 
 .hero-eyebrow {
-  font-family: var(--font-mono); /* Set to Space Mono */
+  font-family: var(--font-mono);
+  /* Set to Space Mono */
   font-size: .8rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -482,7 +538,8 @@ section {
 .hero-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(3.5rem, 8vw, 5.8rem); /* Enhanced viewport size scaling */
+  font-size: clamp(3.5rem, 8vw, 5.8rem);
+  /* Enhanced viewport size scaling */
   line-height: .95;
   letter-spacing: 1px;
   color: var(--ink);
@@ -492,7 +549,8 @@ section {
 .hero-name span {
   display: block;
   color: var(--accent);
-  font-style: normal; /* Clean alignment */
+  font-style: normal;
+  /* Clean alignment */
   font-weight: 500;
 }
 
@@ -603,7 +661,8 @@ section {
   right: -14px;
   background: var(--accent);
   color: #08130d;
-  font-family: var(--font-mono); /* Space Mono for labels */
+  font-family: var(--font-mono);
+  /* Space Mono for labels */
   font-weight: 700;
   font-size: .7rem;
   letter-spacing: .1em;
@@ -614,8 +673,15 @@ section {
 }
 
 @keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 .scroll-hint {
@@ -650,8 +716,13 @@ section {
 }
 
 @keyframes scrollLine {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 
@@ -698,6 +769,35 @@ section {
   box-shadow: var(--shadow-sm);
 }
 
+
+/* -------------------------------------------------------------------------
+   9. Video
+   ------------------------------------------------------------------------- */
+
+.video-container {
+  position: relative;
+  display: inline-block;
+}
+
+.sound-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.sound-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
 
 /* -------------------------------------------------------------------------
    9. ABOUT
@@ -820,7 +920,8 @@ section {
   display: flex;
   justify-content: space-between;
   margin-top: .55rem;
-  font-family: var(--font-mono); /* Set metrics to monospace */
+  font-family: var(--font-mono);
+  /* Set metrics to monospace */
   font-size: .72rem;
   font-weight: 500;
   color: var(--muted);
@@ -930,7 +1031,8 @@ section {
 }
 
 .port-tag {
-  font-family: var(--font-mono); /* Space Mono labels */
+  font-family: var(--font-mono);
+  /* Space Mono labels */
   font-size: .68rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -1086,7 +1188,8 @@ section {
 
 .exp-period {
   display: inline-block;
-  font-family: var(--font-mono); /* Date logs to Space Mono */
+  font-family: var(--font-mono);
+  /* Date logs to Space Mono */
   font-size: .72rem;
   font-weight: 600;
   letter-spacing: .04em;
@@ -1358,10 +1461,17 @@ footer span {
    18. RESPONSIVE
    ------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-  nav { padding: 1rem 1.5rem; }
-  nav.scrolled { padding: .8rem 1.5rem; }
+  nav {
+    padding: 1rem 1.5rem;
+  }
 
-  .nav-toggle { display: block; }
+  nav.scrolled {
+    padding: .8rem 1.5rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
 
   .nav-links {
     position: fixed;
@@ -1385,7 +1495,9 @@ footer span {
     z-index: 1001;
   }
 
-  .nav-links.open { transform: translateX(0); }
+  .nav-links.open {
+    transform: translateX(0);
+  }
 
   /* Dark backdrop behind the drawer */
   .nav-overlay {
@@ -1403,7 +1515,9 @@ footer span {
     visibility: visible;
   }
 
-  .nav-links li { width: 100%; }
+  .nav-links li {
+    width: 100%;
+  }
 
   .nav-links a {
     display: block;
@@ -1418,7 +1532,7 @@ footer span {
     border-top: 1px solid var(--line-soft);
   }
 
-  .nav-has-sub > a {
+  .nav-has-sub>a {
     border-top: none;
   }
 
@@ -1446,7 +1560,9 @@ footer span {
     border-top: 1px solid var(--line-soft);
   }
 
-  section { padding: 5rem 1.5rem; }
+  section {
+    padding: 5rem 1.5rem;
+  }
 
   #hero {
     grid-template-columns: 1fr;
@@ -1455,22 +1571,51 @@ footer span {
     gap: 2.5rem;
   }
 
-  .hero-visual { order: -1; }
-  .hero-social { justify-content: center; }
-  .hero-cta { justify-content: center; }
-  .hero-desc { margin-left: auto; margin-right: auto; }
-  .scroll-hint { display: none; }
+  .hero-visual {
+    order: -1;
+  }
 
-  #about { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-social {
+    justify-content: center;
+  }
 
-  .edu-cert-grid { grid-template-columns: 1fr; }
+  .hero-cta {
+    justify-content: center;
+  }
 
-  footer { flex-direction: column; text-align: center; padding: 1.8rem 1.5rem; }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  #about {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .edu-cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.8rem 1.5rem;
+  }
 }
 
 @media (max-width: 420px) {
-  .about-stats { grid-template-columns: 1fr 1fr; }
-  .hero-name { font-size: 2.8rem; }
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
 }
 
 /* -------------------------------------------------------------------------
@@ -1479,15 +1624,33 @@ footer span {
    spacing/type so the site sits comfortably inside a mobile app webview.
    ------------------------------------------------------------------------- */
 @media (max-width: 480px) {
-  section { padding: 3.5rem 1.1rem; }
+  section {
+    padding: 3.5rem 1.1rem;
+  }
 
-  .nav-logo { font-size: 1.4rem; letter-spacing: 2px; }
+  .nav-logo {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
 
-  .hero-cta { flex-direction: column; align-items: stretch; }
-  .hero-cta .btn { justify-content: center; }
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-  .portfolio-tabs { gap: .45rem; margin-bottom: 1.8rem; }
-  .tab-btn { padding: .45rem .9rem; font-size: .74rem; }
+  .hero-cta .btn {
+    justify-content: center;
+  }
+
+  .portfolio-tabs {
+    gap: .45rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .tab-btn {
+    padding: .45rem .9rem;
+    font-size: .74rem;
+  }
 
   .portfolio-grid,
   .skills-grid,
@@ -1495,20 +1658,52 @@ footer span {
     grid-template-columns: 1fr;
   }
 
-  .video-placeholder { border-radius: 12px; }
-  .video-play-btn { width: 54px; height: 54px; }
-  .video-play-btn svg { width: 20px; height: 20px; }
-  .video-placeholder-inner { font-size: .7rem; }
+  .video-placeholder {
+    border-radius: 12px;
+  }
 
-  .contact-glow { font-size: clamp(2.2rem, 9vw, 3rem); }
-  .contact-links { gap: .7rem; }
-  .contact-link { padding: .7rem 1.1rem; font-size: .82rem; }
+  .video-play-btn {
+    width: 54px;
+    height: 54px;
+  }
 
-  .exp-timeline { padding-left: 1.8rem; }
-  .exp-item { padding: 1.3rem 1.3rem; }
+  .video-play-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .video-placeholder-inner {
+    font-size: .7rem;
+  }
+
+  .contact-glow {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .contact-links {
+    gap: .7rem;
+  }
+
+  .contact-link {
+    padding: .7rem 1.1rem;
+    font-size: .82rem;
+  }
+
+  .exp-timeline {
+    padding-left: 1.8rem;
+  }
+
+  .exp-item {
+    padding: 1.3rem 1.3rem;
+  }
 }
 
 @media (max-width: 360px) {
-  .hero-name { font-size: 2.3rem; }
-  .stat-num { font-size: 2.3rem; }
+  .hero-name {
+    font-size: 2.3rem;
+  }
+
+  .stat-num {
+    font-size: 2.3rem;
+  }
 }
