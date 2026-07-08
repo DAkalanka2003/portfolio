@@ -17,26 +17,26 @@
    1. THEME TOKENS
    ------------------------------------------------------------------------- */
 :root {
-  --bg: #ffffff;                 /* main background — WHITE                */
-  --bg-soft: #f6f7f5;            /* alternating section tint               */
-  --bg-card: #ffffff;            /* card surface                           */
-  --ink: #14151a;               /* headings / strong text                 */
-  --body: #4a4d57;              /* paragraph text                         */
-  --muted: #8b8f9a;             /* captions / labels                      */
-  --line: #e8e9e5;              /* hairline borders                       */
-  --line-soft: #f0f1ee;         /* softer borders                         */
-  --accent: #0e9d63;            /* brand accent (emerald)                 */
-  --accent-deep: #0a7d4e;       /* darker accent                          */
-  --accent-soft: rgba(14, 157, 99, 0.09);
-  --shadow-sm: 0 2px 10px rgba(20, 21, 26, 0.05);
-  --shadow-md: 0 12px 40px rgba(20, 21, 26, 0.10);
-  --shadow-lg: 0 30px 70px rgba(20, 21, 26, 0.14);
+  --bg: #0a0f0d;                 /* main background — near-black, green-tinted */
+  --bg-soft: #101613;            /* alternating section tint               */
+  --bg-card: #141b18;            /* card surface                           */
+  --ink: #eef6f1;               /* headings / strong text — off-white     */
+  --body: #a9b6af;              /* paragraph text                         */
+  --muted: #6e7d75;             /* captions / labels                      */
+  --line: #222e28;              /* hairline borders                       */
+  --line-soft: #1a241f;         /* softer borders                         */
+  --accent: #22c55e;            /* brand accent (bright green)            */
+  --accent-deep: #4ade80;       /* lighter accent (text on soft chips)    */
+  --accent-soft: rgba(34, 197, 94, 0.14);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.55);
   --radius: 16px;
 
-  /* Fonts changed from the secondary snippet */
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Syne', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  /* Professional font stack */
+  --font-display: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 
@@ -125,7 +125,7 @@ a {
 .bg-blobs .b1 {
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(14, 157, 99, 0.20), transparent 70%);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.28), transparent 70%);
   top: -120px;
   left: -100px;
   animation: drift1 22s ease-in-out infinite;
@@ -134,7 +134,7 @@ a {
 .bg-blobs .b2 {
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.18), transparent 70%);
   bottom: -140px;
   right: -80px;
   animation: drift2 26s ease-in-out infinite;
@@ -143,10 +143,30 @@ a {
 .bg-blobs .b3 {
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, rgba(250, 204, 21, 0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(134, 239, 172, 0.14), transparent 70%);
   top: 40%;
   left: 55%;
   animation: drift3 30s ease-in-out infinite;
+}
+
+/* Slowly-scrolling grid — subtle "tech" texture behind everything */
+.bg-grid {
+  position: fixed;
+  inset: -2px;
+  z-index: -3;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(34, 197, 94, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+  background-size: 46px 46px;
+  animation: gridDrift 18s linear infinite;
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 78%);
+}
+
+@keyframes gridDrift {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 46px 46px, 46px 46px; }
 }
 
 @keyframes drift1 {
@@ -189,7 +209,7 @@ a {
 #cursor-ring {
   width: 34px;
   height: 34px;
-  border: 1.5px solid rgba(14, 157, 99, 0.5);
+  border: 1.5px solid rgba(34, 197, 94, 0.6);
   transition: width .25s, height .25s, border-color .25s;
 }
 
@@ -213,10 +233,12 @@ nav {
   right: 0;
   z-index: 1000;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 4rem;
-  background: rgba(255, 255, 255, 0.72);
+  gap: 1rem;
+  padding: 1.3rem clamp(1.5rem, 4vw, 4rem);
+  background: rgba(10, 15, 13, 0.72);
   backdrop-filter: blur(16px) saturate(150%);
   border-bottom: 1px solid transparent;
   transition: padding .3s ease, box-shadow .3s ease, border-color .3s ease;
@@ -224,7 +246,7 @@ nav {
 
 /* .scrolled is added by script.js once you scroll down */
 nav.scrolled {
-  padding: .85rem 4rem;
+  padding: .85rem clamp(1.5rem, 4vw, 4rem);
   border-bottom: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
 }
@@ -232,9 +254,11 @@ nav.scrolled {
 .nav-logo {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.8rem; /* Scaled up to align with Bebas Neue's compact style */
+  font-size: clamp(1.3rem, 2vw, 1.8rem); /* Scaled up to align with Bebas Neue's compact style */
   letter-spacing: 3px; /* Matched from code 2 */
   color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-logo span {
@@ -243,20 +267,27 @@ nav.scrolled {
 
 .nav-links {
   display: flex;
-  gap: .4rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(0, .6vw, .4rem);
   list-style: none;
+}
+
+.nav-links li {
+  flex-shrink: 0;
 }
 
 .nav-links a {
   position: relative;
   font-family: var(--font-mono); /* Swapped to Space Mono */
-  font-size: .82rem;
+  font-size: clamp(.68rem, 1vw, .82rem);
   font-weight: 500;
-  letter-spacing: 2px; /* Matched from code 2 */
+  letter-spacing: clamp(.5px, .15vw, 2px); /* Matched from code 2 */
   text-transform: uppercase;
   color: var(--body);
-  padding: .5rem .9rem;
+  padding: .5rem clamp(.5rem, 1.2vw, .9rem);
   border-radius: 8px;
+  white-space: nowrap;
   transition: color .25s, background .25s;
 }
 
@@ -282,6 +313,91 @@ nav.scrolled {
 .nav-toggle svg {
   width: 26px;
   height: 26px;
+}
+
+/* --- "Work" category submenu --- */
+.nav-has-sub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav-has-sub > a {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.nav-sub-toggle {
+  background: none;
+  border: none;
+  color: var(--body);
+  padding: .4rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s, color .2s;
+}
+
+.nav-sub-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.nav-has-sub.open .nav-sub-toggle,
+.nav-has-sub:hover .nav-sub-toggle {
+  color: var(--accent-deep);
+}
+
+.nav-has-sub:hover .nav-sub-toggle,
+.nav-has-sub.open .nav-sub-toggle {
+  transform: rotate(180deg);
+}
+
+.nav-submenu {
+  list-style: none;
+}
+
+/* Desktop: floating dropdown panel */
+@media (min-width: 961px) {
+  .nav-submenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 220px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .5rem;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+
+  .nav-has-sub:hover .nav-submenu,
+  .nav-has-sub.open .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-submenu a {
+    display: block;
+    padding: .6rem .8rem;
+    border-radius: 8px;
+    font-size: .78rem;
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+
+  .nav-submenu a:hover {
+    background: var(--bg-soft);
+    color: var(--ink);
+  }
 }
 
 
@@ -485,8 +601,8 @@ section {
   position: absolute;
   bottom: 16px;
   right: -14px;
-  background: var(--ink);
-  color: #fff;
+  background: var(--accent);
+  color: #08130d;
   font-family: var(--font-mono); /* Space Mono for labels */
   font-weight: 700;
   font-size: .7rem;
@@ -566,7 +682,7 @@ section {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(20, 21, 26, 0.25);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
 }
 
 .btn-outline {
@@ -739,9 +855,9 @@ section {
 }
 
 .tab-btn.active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #08130d;
   font-weight: 600;
 }
 
@@ -851,6 +967,73 @@ section {
 
 .port-link:hover {
   gap: .7rem;
+}
+
+
+/* -------------------------------------------------------------------------
+   11.5 INTRO VIDEO
+   ------------------------------------------------------------------------- */
+#intro-video-section {
+  text-align: center;
+}
+
+.video-placeholder {
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .3s, transform .3s;
+}
+
+.video-placeholder:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.video-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .9rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.video-play-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.video-play-btn svg {
+  width: 26px;
+  height: 26px;
+  margin-left: 3px;
+}
+
+/* Real embeds (see the HTML comment above the section) should use this class */
+.intro-video {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
 }
 
 
@@ -1187,7 +1370,7 @@ footer span {
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(10, 15, 13, 0.98);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
     padding: 0;
@@ -1204,6 +1387,40 @@ footer span {
     display: block;
     padding: 1rem 1.5rem;
     border-radius: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* Work category submenu becomes an inline accordion on mobile */
+  .nav-has-sub {
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .nav-has-sub > a {
+    border-top: none;
+  }
+
+  .nav-sub-toggle {
+    padding: .8rem 1.2rem;
+  }
+
+  .nav-submenu {
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-soft);
+    transition: max-height .3s ease;
+  }
+
+  .nav-has-sub.open .nav-submenu {
+    max-height: 320px;
+  }
+
+  .nav-submenu a {
+    display: block;
+    padding: .8rem 1.5rem .8rem 2.4rem;
+    font-size: .78rem;
+    color: var(--muted);
     border-top: 1px solid var(--line-soft);
   }
 
@@ -1232,4 +1449,44 @@ footer span {
 @media (max-width: 420px) {
   .about-stats { grid-template-columns: 1fr 1fr; }
   .hero-name { font-size: 2.8rem; }
+}
+
+/* -------------------------------------------------------------------------
+   18b. EXTRA MOBILE-APP FIT (phones, ~480px and under)
+   Prevents card grids from overflowing narrow screens and tightens up
+   spacing/type so the site sits comfortably inside a mobile app webview.
+   ------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  section { padding: 3.5rem 1.1rem; }
+
+  .nav-logo { font-size: 1.4rem; letter-spacing: 2px; }
+
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { justify-content: center; }
+
+  .portfolio-tabs { gap: .45rem; margin-bottom: 1.8rem; }
+  .tab-btn { padding: .45rem .9rem; font-size: .74rem; }
+
+  .portfolio-grid,
+  .skills-grid,
+  .lead-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-placeholder { border-radius: 12px; }
+  .video-play-btn { width: 54px; height: 54px; }
+  .video-play-btn svg { width: 20px; height: 20px; }
+  .video-placeholder-inner { font-size: .7rem; }
+
+  .contact-glow { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .contact-links { gap: .7rem; }
+  .contact-link { padding: .7rem 1.1rem; font-size: .82rem; }
+
+  .exp-timeline { padding-left: 1.8rem; }
+  .exp-item { padding: 1.3rem 1.3rem; }
+}
+
+@media (max-width: 360px) {
+  .hero-name { font-size: 2.3rem; }
+  .stat-num { font-size: 2.3rem; }
 }
