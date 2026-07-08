@@ -71,7 +71,8 @@
       <li class="nav-has-sub">
         <a href="#portfolio-section"><b>Work</b></a>
         <button class="nav-sub-toggle" aria-label="Toggle Work categories" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+            stroke-linejoin="round">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </button>
@@ -201,34 +202,13 @@
   <!-- =====================================================================
        INTRO VIDEO
        Placeholder block — swap the .video-placeholder div below for your
-       real video once it's ready. Two easy options:
+       real video once it's ready. Two easy options: -->
 
-       1) Your own video file (put it in a /Videos folder):
-          <video class="intro-video" controls poster="Images/profile.jpeg">
-            <source src="Videos/intro.mp4" type="video/mp4">
-          </video>
-
-       2) A YouTube upload (replace VIDEO_ID with yours):
-          <iframe class="intro-video" src="https://www.youtube.com/embed/VIDEO_ID"
-            title="Intro video" frameborder="0" allowfullscreen></iframe>
-       ===================================================================== -->
-  <section id="intro-video-section">
-    <div class="section-tag reveal" style="justify-content:center;">Get To Know Me</div>
-    <h2 class="section-title reveal" style="text-align:center;">Intro <span>Video</span></h2>
-
-    <div class="video-placeholder reveal">
-      <div class="video-placeholder-inner">
-        <div class="video-play-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
-        <p>Intro video coming soon</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="full-divider"></div>
+  <h2 class="section-title reveal" style="text-align:center;">Intro <span>Video</span></h2>
+  <video class="intro-video" autoplay muted loop playsinline disablePictureInPicture
+    controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;" poster="Images/profile.jpeg">
+    <source src="Images/Video.mp4" type="video/mp4">
+  </video>
 
 
   <!-- =====================================================================
