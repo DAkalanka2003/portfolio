@@ -222,11 +222,25 @@ document.addEventListener('DOMContentLoaded', () => {
      ----------------------------------------------------------------------- */
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  const closeMobileNav = () => {
+    navLinks?.classList.remove('open');
+    navOverlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navOverlay?.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
     navLinks.querySelectorAll('a').forEach((a) =>
-      a.addEventListener('click', () => navLinks.classList.remove('open')));
+      a.addEventListener('click', closeMobileNav));
   }
+
+  navOverlay?.addEventListener('click', closeMobileNav);
 
 
   /* -----------------------------------------------------------------------
