@@ -538,6 +538,46 @@
       ],
       techPills: ['HTML5 & CSS3', 'JavaScript (ES6+)', 'Gallery Lightbox Engine', 'Vercel Cloud Edge']
     },
+    {
+      id: 'fixnow-app',
+      title: 'FixNow On-Demand Service Marketplace App',
+      tag: 'UI / UX Design · Mobile & Desktop Ecosystem',
+      category: 'UI / UX Product Design · Figma',
+      year: '2026',
+      subtitle: 'Comprehensive 3-Role Service Ecosystem (Customer, Provider & Admin) Designed in Figma',
+      browserUrl: 'figma.com/proto/fixnow-app',
+      liveUrl: 'https://www.figma.com/proto/619bVjTfqMAljSK8A235iE/FixNow-App?node-id=8-9555&t=dLIX7Ito516NsWH7-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
+      imgSrc: 'Images/FixNow App.jpg',
+      btnText: 'Launch Figma Prototype',
+      overview: 'An on-demand local service marketplace connecting homeowners with verified technicians. Designed in Figma with 3 interconnected portals: Customer mobile app with problem-first booking and live GPS tracking, Provider mobile app with job dispatch & earnings, and a 1440px Admin desktop console.',
+      highlights: [
+        { label: 'Problem-First Intake', val: '4-step intuitive flow capturing issue, photos & geolocation upfront' },
+        { label: '3-Role Interconnection', val: 'Seamless handoff between Customer, Provider & Admin portals' },
+        { label: 'Transparent Pricing & Trust', val: 'Itemized cost breakdowns, verified credentials & zero upfront deposit' },
+        { label: 'Developer Handoff', val: '8px grid, Inter typography, component states & tokenized color system' }
+      ],
+      techPills: ['Figma (UI/UX)', 'Design System Architecture', 'Interactive Prototype', 'Developer Handoff', 'Mobile & Desktop Frames']
+    },
+    {
+      id: 'finpulse-app',
+      title: 'FinPulse Next-Gen Wealth & Money Manager',
+      tag: 'UI / UX Design · FinTech Mobile & Web Suite',
+      category: 'UI / UX Product Design · Figma',
+      year: '2026',
+      subtitle: 'Next-Generation Personal Finance Ecosystem & Web Console Designed in Figma',
+      browserUrl: 'figma.com/@finpulse-finance',
+      liveUrl: 'Images/Money%20Manager%20App.jpg',
+      imgSrc: 'Images/Money Manager App.jpg',
+      btnText: 'View Design Showcase',
+      overview: 'A next-generation personal finance and wealth management suite designed in Figma. Features interactive circular budget rings, cashflow velocity tracking, 1-tap fund transfers, digital receipt logging, and an executive desktop web console for full transactional visibility.',
+      highlights: [
+        { label: 'Financial Clarity', val: 'Interactive budget utilization rings & monthly cashflow curves' },
+        { label: 'Instant Transfers & Receipts', val: 'Streamlined 1-tap fund transfers, verification modals & receipt hub' },
+        { label: 'Executive Web Console', val: 'Desktop admin suite for transaction monitoring, analytics & user security' },
+        { label: 'Design System & Tokens', val: 'Emerald green identity (#0A6B48), card elevations & accessible type scale' }
+      ],
+      techPills: ['Figma (UI/UX)', 'Design Systems', 'FinTech Architecture', 'Data Visualization', 'Mobile & Web UX']
+    },
     // --- DAK PHOTOGRAPHY (6 Items) ---
     {
       id: 'dak-preshoot',
@@ -1076,7 +1116,7 @@
   /* -------------------------------------------------------------------------
      11. EXPANDED PROJECT DETAILS MODAL WITH SIDE NAVIGATION & STRICT SCROLL LOCK
      ------------------------------------------------------------------------- */
-  const PROJECT_KEYS = ['alumni-directory', 'richpath-pro', 'dak-studio', 'hela-weda-gedara', 'unposed-moments'];
+  const PROJECT_KEYS = ['alumni-directory', 'fixnow-app', 'finpulse-app', 'richpath-pro', 'dak-studio', 'hela-weda-gedara', 'unposed-moments'];
   let currentProjectIndex = 0;
 
   const PROJECT_DATA = {
@@ -1097,6 +1137,44 @@
         { label: '4-Pillar Moderation', val: 'Approval workflows, live editing & record management' }
       ],
       techPills: ['Semantic HTML5 / CSS3', 'Vanilla JS (ES6+)', 'Photo/PDF Dual Engine', 'Surge.sh Edge CDN', 'HTTPS SSL']
+    },
+
+    'fixnow-app': {
+      title: 'FixNow – On-Demand Service Marketplace App',
+      subtitle: 'Multi-Role Service Marketplace (Customer, Provider & Admin) Designed in Figma',
+      badge: 'UI / UX Design Case Study · Figma',
+      year: '2026',
+      browserUrl: 'figma.com/proto/fixnow-app',
+      liveUrl: 'https://www.figma.com/proto/619bVjTfqMAljSK8A235iE/FixNow-App?node-id=8-9555&t=dLIX7Ito516NsWH7-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
+      imgSrc: 'Images/FixNow App.jpg',
+      btnText: 'Launch Interactive Figma Prototype',
+      overview: 'FixNow is an on-demand multi-role service marketplace designed end-to-end in Figma. It connects homeowners facing urgent repairs with verified local tradespeople through three tightly integrated interfaces: a customer mobile app with problem-first booking and live GPS tracking, a service provider mobile app with job dispatch and earnings dashboards, and a 1440px desktop web portal for admin verification and dispute resolution.',
+      highlights: [
+        { label: 'Problem-First Intake', val: '4-step intuitive flow capturing issue, photos & geolocation upfront' },
+        { label: '3-Role Interconnection', val: 'Seamless handoff between Customer, Provider & Admin portals' },
+        { label: 'Transparent Pricing & Trust', val: 'Itemized cost breakdowns, verified credentials & zero upfront deposit' },
+        { label: 'Developer Handoff', val: '8px grid, Inter typography, component states & tokenized color system' }
+      ],
+      techPills: ['Figma (Auto Layout & Components)', 'Design System Architecture', 'Multi-Role User Journeys', 'Interactive Prototyping', 'Developer Handoff Specs']
+    },
+
+    'finpulse-app': {
+      title: 'FinPulse – Wealth & Money Manager App',
+      subtitle: 'Next-Generation Personal Finance Ecosystem & Web Console Designed in Figma',
+      badge: 'UI / UX Design Case Study · Figma',
+      year: '2026',
+      browserUrl: 'figma.com/@finpulse-finance',
+      liveUrl: 'Images/Money%20Manager%20App.jpg',
+      imgSrc: 'Images/Money Manager App.jpg',
+      btnText: 'View High-Resolution UI Showcase',
+      overview: 'FinPulse is a next-generation personal finance and wealth management suite designed in Figma to bring effortless financial clarity to users. It integrates an intuitive mobile app featuring circular budget utilization rings, spending velocity analytics, instant fund transfers, and digital receipt capture, coupled with an executive desktop web console for complete transaction auditing, user verification, and platform growth metrics.',
+      highlights: [
+        { label: 'Financial Clarity', val: 'Interactive budget utilization rings (84.2%) & monthly cashflow curves' },
+        { label: 'Instant Transfers & Receipts', val: 'Streamlined 1-tap fund transfers, verification modals & receipt hub' },
+        { label: 'Executive Web Console', val: 'Desktop admin suite for transaction monitoring, analytics & user security' },
+        { label: 'Design System & Tokens', val: 'Emerald green identity (#0A6B48), card elevations & accessible type scale' }
+      ],
+      techPills: ['Figma (UI/UX)', 'Design System & Tokens', 'FinTech Mobile UX', 'Desktop Web Console', 'Data Visualization']
     },
 
     'richpath-pro': {
